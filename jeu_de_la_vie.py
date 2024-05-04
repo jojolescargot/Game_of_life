@@ -3,7 +3,7 @@ import logic
 import matplotlib.pyplot as plt
 from matplotlib import animation
 
-game = logic.GameofLife(1000)
+game = logic.GameofLife(350)
 
 fig = plt.figure()
 ax = plt.axes()
@@ -21,10 +21,11 @@ def init():
 def animate(i):
     game.step()
     im.set_array(game.A)
+    print(game.A)
     return [im]
 
 anim = animation.FuncAnimation(fig, animate, init_func=init,
-                               frames=200, interval=10, blit=False)
+                               frames=200, interval=10, blit=True)
 
 plt.show()
 
